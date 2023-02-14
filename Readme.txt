@@ -7,3 +7,5 @@ Command for start all ui tests:
 - Without allure logs: python -m pytest ui/tests/
 
 Command for see result log of allure: allure serve test_results/
+
+if you get allure error - create package test_results
