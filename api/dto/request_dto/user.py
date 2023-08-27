@@ -8,3 +8,7 @@ class User:
         self.password = password
         self.phone = phone
         self.userStatus = userStatus
+
+    @staticmethod
+    def get_dto_dict(user_id, username, firstName, lastName, email, password, phone, userStatus):
+        return User(user_id, username, firstName, lastName, email, password, phone, userStatus).__dict__
