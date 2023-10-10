@@ -1,14 +1,25 @@
-class User:
-    def __init__(self, user_id, username, firstName, lastName, email, password, phone, userStatus):
-        self.id = user_id
-        self.username = username
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-        self.password = password
-        self.phone = phone
-        self.userStatus = userStatus
+from dataclasses import dataclass
 
-    @staticmethod
-    def get_dto_dict(user_id, username, firstName, lastName, email, password, phone, userStatus):
-        return User(user_id, username, firstName, lastName, email, password, phone, userStatus).__dict__
+
+@dataclass
+class User:
+    id: int
+    username: str
+    firstName: str
+    lastName: str
+    email: str
+    password: str
+    phone: str
+    userStatus: int
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'firstName': self.firstName,
+            'lastName': self.lastName,
+            'email': self.email,
+            'password': self.password,
+            'phone': self.phone,
+            'userStatus': self.userStatus
+        }

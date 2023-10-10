@@ -1,11 +1,13 @@
-class GetUserResponseBuilder:
+from dataclasses import dataclass
 
-    def __init__(self, id, username, firstName, lastName, email, password, phone, userStatus):
-        self.id = id
-        self.username = username
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-        self.password = password
-        self.phone = phone
-        self.userStatus = userStatus
+
+@dataclass
+class GetUserResponseBuilder:
+    id: int
+    username: str
+    firstName: str
+    lastName: str
+    email: str
+    password: str
+    phone: str
+    userStatus: int

@@ -2,18 +2,18 @@ from api.dto.response_dto.user_get_response_builder import GetUserResponseBuilde
 from api.dto.response_dto.user_response_builder import UserResponseBuilder
 from api.enumiration.uri import Uri
 from api.lib.my_requests import MyRequests
-from api.utils.json_utils import Utils
+from api.utils.json_utils import from_json
 
 
-class UserSteps:
-    @staticmethod
-    def crate_user(data):
-        response = MyRequests.post(Uri.create_user.value, dict(data)).text
+def crate_user(data):
+    request = MyRequests(data)
+    response = request.post(Uri.create_user.value).text
 
-        return Utils.from_json(response, UserResponseBuilder)
+    return from_json(response, UserResponseBuilder)
 
-    @staticmethod
-    def get_user(name):
-        response = MyRequests.get(f"{Uri.get_user.value}{name}").text
 
-        return Utils.from_json(response, GetUserResponseBuilder)
+def get_user(name):
+    request = MyRequests()
+    response = request.get(f"{Uri.get_user.value}{name}").text
+
+    return from_json(response, GetUserResponseBuilder)

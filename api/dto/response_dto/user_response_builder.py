@@ -1,7 +1,16 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class UserResponseBuilder:
 
-    def __init__(self, code, type, message):
-        self.code = code
-        self.type = type
-        self.message = message
+    code: int
+    type: str
+    message: str
 
+    def to_dict(self):
+        return {
+            'code': self.code,
+            'type': self.type,
+            'message': self.message
+        }
