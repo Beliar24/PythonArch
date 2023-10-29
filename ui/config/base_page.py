@@ -8,13 +8,13 @@ class BasePage:
         self.driver = driver
         self.base_url = "https://en.wikipedia.org/wiki/Main_Page"
 
-    def find_element(self, locator, time=10):
+    def _wait_element_located(self, locator, time):
         return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
                                                       message=f"Can't find locator {locator}")
 
-    def find_elements(self, locator, time=10):
-        return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
-                                                      message=f"Can't find locator {locator}")
+    def _wait_element_clickable(self, locator, time):
+        return WebDriverWait(self.driver, time).until(EC.element_to_be_clickable(locator),
+                                                      message=f"Element is not clickable {locator}")
 
     def open_page(self):
         return self.driver.get(self.base_url)

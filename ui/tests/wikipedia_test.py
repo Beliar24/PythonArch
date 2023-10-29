@@ -19,7 +19,7 @@ def test_search_appium_info(browser):
     search.open_page()
     search.search_text("Appium")
 
-    assert "Search result" in search.get_text_search_result()
+    assert "Appium" in search.get_text_search_result()
 
 
 @allure.description("Auth with user")

@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 
 @dataclass
@@ -9,8 +9,4 @@ class UserResponseBuilder:
     message: str
 
     def to_dict(self):
-        return {
-            'code': self.code,
-            'type': self.type,
-            'message': self.message
-        }
+        return asdict(self)

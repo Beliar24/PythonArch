@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 
 @dataclass
@@ -13,13 +13,4 @@ class User:
     userStatus: int
 
     def to_dict(self):
-        return {
-            'id': self.id,
-            'username': self.username,
-            'firstName': self.firstName,
-            'lastName': self.lastName,
-            'email': self.email,
-            'password': self.password,
-            'phone': self.phone,
-            'userStatus': self.userStatus
-        }
+        return asdict(self)
