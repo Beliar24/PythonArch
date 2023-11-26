@@ -21,7 +21,6 @@ def browser():
 def auth(browser):
     go = WikipediaAuthActions(browser)
     go.open_page()
-    go.click_three_dots()
     go.click_login_menu()
     go.auth(get_property("username"), get_property("password"))
-    yield browser
+    return browser
