@@ -1,6 +1,6 @@
 import requests
-
 from api.utils.environment import ENV_OBJECT
+from api.utils.logger import Logger
 
 
 class BaseRequest:
@@ -12,6 +12,8 @@ class BaseRequest:
 
     def send(self, url: str, method: str):
         url = f"{ENV_OBJECT.get_base_url()}{url}"
+
+        Logger.add_request(url, self.data, method, self.headers, self.cookies)
 
         if method == "GET":
             response = requests.get(url, params=self.data, headers=self.headers, cookies=self.cookies)

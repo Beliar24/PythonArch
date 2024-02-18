@@ -11,7 +11,6 @@ names = ["user", "user1"]
 @allure.description("create user")
 def test_create_user(name):
     data = User(0, name, 'sfgsd', 'ertf', 'tewe', 'sdgdfgd', '24646252', 0).to_dict()
-
     response = crate_user(data)
 
     assert_json_value_be_name(response.code, 200, "Wrong response code")

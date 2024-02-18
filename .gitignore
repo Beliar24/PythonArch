@@ -3,3 +3,10 @@
 /test_results
 /logs
 /api/tests/.pytest_cache
+/api/dto/.pytest_cache
+/api/lib/.pytest_cache
+/api/enumiration/.pytest_cache
+/api/logs/.pytest_cache
+/api/logs
+/api/steps/.pytest_cache
+/api/utils/.pytest_cache

@@ -2,6 +2,7 @@ import json.decoder
 
 from requests import Response
 
+
 def get_cookie(response: Response, cookie_name):
     assert cookie_name in response.cookies, f"Cannot find cookie with name {cookie_name}"
     return response.cookies[cookie_name]
